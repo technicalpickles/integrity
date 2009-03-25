@@ -1,6 +1,16 @@
 require File.dirname(__FILE__) + "/../helpers"
 
 class NotifierTest < Test::Unit::TestCase
+  describe "deprecated methods" do
+    it "should respond to build" do
+      Notifier::Base.new(Build.gen, {}).should respond_to(:build)
+    end
+
+    it "should respond to build_url" do
+      Notifier::Base.new(Build.gen, {}).should respond_to(:build_url)
+    end
+  end
+
   specify "IRC fixture is valid and can be saved" do
     lambda do
       Notifier.generate(:irc).tap do |project|
