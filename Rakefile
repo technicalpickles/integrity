@@ -50,6 +50,14 @@ begin
   require "mg"
   MG.new("integrity.gemspec")
 rescue LoadError
+  def abort_without_mg; abort "To use this task: gem install sr-mg";end
+  task :install do; abort_without_mg; end
+  task :package do; abort_without_mg; end
+  task :rubyforge do; abort_without_mg; end
+  namespace :rubyforge do
+    task :gem do; abort_without_mg; end
+    task :git do; abort_without_mg; end
+  end
 end
 
 begin

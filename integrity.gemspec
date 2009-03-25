@@ -116,10 +116,6 @@ test/unit/notifier_test.rb
 test/unit/project_builder_test.rb
 test/unit/project_test.rb
 test/unit/scm_test.rb
-vendor/sinatra-ditties/README.rdoc
-vendor/sinatra-ditties/lib/sinatra/ditties.rb
-vendor/sinatra-ditties/lib/sinatra/ditties/authorization.rb
-vendor/sinatra-ditties/lib/sinatra/ditties/mailer.rb
 views/_commit_info.haml
 views/build.haml
 views/error.haml

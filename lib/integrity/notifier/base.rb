@@ -17,9 +17,10 @@ module Integrity
       end
 
       def build
-        warn "Notifier::Base#build is deprecated, use Notifier::Base#commit instead"
+        warn "Notifier::Base#build is deprecated, use Notifier::Base#commit instead (#{caller[0]})"
         commit
       end
+
 
       def deliver!
         raise NoMethodError, "you need to implement this method in your notifier"
@@ -48,6 +49,11 @@ EOM
       def commit_url
         raise if Integrity.config[:base_uri].nil?
         Integrity.config[:base_uri] / commit.project.permalink / "commits" / commit.identifier
+      end
+
+      def build_url
+        warn "Notifier::Base#build_url is deprecated, use Notifier::Base#commit_url instead (#{caller[0]})"
+        commit_url
       end
 
       private
